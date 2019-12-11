@@ -8,9 +8,10 @@ public class OrderDatabase {
 
     public void add(Order order) {
         orderList.add(order);
+        queueOrder(order);
     }
 
     public void queueOrder(Order order) {
-        //send orderlist to cook
+        order.PrintOrder();
     }
 }

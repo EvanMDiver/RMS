@@ -3,6 +3,7 @@ package rms;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class AddItemDialog extends JDialog{
@@ -19,7 +20,10 @@ public class AddItemDialog extends JDialog{
         this.pack();
         this.setModal(true);
         DefaultListModel listModel = new DefaultListModel();
-        controller.menu.items.forEach((key, value) -> {listModel.addElement(value.toString()); idList.add(key);});
+        controller.menu.getItems().forEach((key, value) -> {
+            listModel.addElement(value.toString() + " (" + NumberFormat.getCurrencyInstance().format(value.price) + ")");
+            idList.add(key);
+        });
         itemList.setModel(listModel);
 
         selectButton.addActionListener(new ActionListener() {

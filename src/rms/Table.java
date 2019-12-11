@@ -8,7 +8,6 @@ public class Table {
     public Table(Integer id) {
         ID = id;
     }
-
     public void makeOrder() {
         Order currorder = new Order();
         currorder.initialize();

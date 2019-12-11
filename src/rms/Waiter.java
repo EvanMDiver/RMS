@@ -3,7 +3,7 @@ package rms;
 import java.util.HashMap;
 
 public class Waiter {
-
+    public HashMap<Integer, Table> tables = new HashMap<>();
 
     public Waiter() {
         tables = new HashMap<Integer, Table>();
@@ -11,8 +11,6 @@ public class Waiter {
             tables.put(i, new Table(i));
         }
     }
-
-    public HashMap<Integer, Table> tables;
 
     public Table getTable(Integer tableID) {
         if (tables.containsKey(tableID)) {

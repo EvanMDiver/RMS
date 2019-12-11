@@ -1,22 +1,20 @@
 package rms;
 
 public class FoodItem {
+    public String name;
+    public double price;
 
+    public FoodItem(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
     public enum StatusEnum {}
-    private String name;
 
     public StatusEnum status;
 
-    public FoodItem(String name) {
-        this.name = name;
-    }
 
     @Override
     public String toString() {
-        return   name ;
-    }
-
-    public FoodItem clone() {
-        return new FoodItem(name);
+        return name;
     }
 }
