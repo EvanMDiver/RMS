@@ -3,7 +3,9 @@ package rms;
 public class Controller {
 
     private FoodItem item;
-    private Table table;
+    public Menu menu = new Menu();
+    public Table currTable;
+    public Waiter currWaiter = new Waiter();
 
 
     public void selectTable(Integer tableID) {
@@ -19,4 +21,5 @@ public class Controller {
         //TODO
 
     }
+
 }
