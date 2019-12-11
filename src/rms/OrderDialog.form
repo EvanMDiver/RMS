@@ -56,7 +56,7 @@
         <properties>
           <enabled value="false"/>
           <text value="Cancel"/>
-          <toolTipText value="Not available for this demo"/>
+          <toolTipText value="Not included in this demo"/>
         </properties>
       </component>
     </children>

@@ -1,12 +1,8 @@
 package rms;
 
 import javax.swing.*;
-import javax.swing.text.NumberFormatter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class AddItemDialog extends JDialog{
@@ -15,7 +11,7 @@ public class AddItemDialog extends JDialog{
     private JButton selectButton;
     private JButton cancelButton;
     private JSpinner quantitySpinner;
-    private int quantity;
+    private int quantity = 1;
     private ArrayList<Integer> idList = new ArrayList<>();
 
     public AddItemDialog(Controller controller) {
@@ -31,8 +27,9 @@ public class AddItemDialog extends JDialog{
             public void actionPerformed(ActionEvent e) {
                 // return the selected item
                 if(!itemList.isSelectionEmpty()){
+                    quantity = (int) quantitySpinner.getValue();
                     Integer selection = idList.get(itemList.getSelectedIndex());
-                    controller.selectItem(selection , quantity);
+                    controller.selectItem(selection, quantity);
                     dispose();
                 }
             }
@@ -42,12 +39,6 @@ public class AddItemDialog extends JDialog{
             public void actionPerformed(ActionEvent e) {
                 // return without selecting an item
                 dispose();
-            }
-        });
-        quantitySpinner.addPropertyChangeListener(new PropertyChangeListener() {
-            @Override
-            public void propertyChange(PropertyChangeEvent evt) {
-                quantity = (int) quantitySpinner.getValue();
             }
         });
 

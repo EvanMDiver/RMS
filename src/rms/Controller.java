@@ -2,24 +2,22 @@ package rms;
 
 public class Controller {
 
-    private FoodItem item;
-    public Menu menu = new Menu();
     public Table currTable;
     public Waiter currWaiter = new Waiter();
-
-
+    public Menu menu = new Menu();
+    private OrderDatabase db = new OrderDatabase();
+	
+	
     public void selectTable(Integer tableID) {
-        //TODO
+        currTable = currWaiter.getTable(tableID);
     }
 
     public void selectItem(Integer itemID, Integer quantity) {
-
-        //TODO
+        FoodItem item = menu.getItem(itemID);
+        currTable.addItem(item, quantity);
     }
 
     public void submitOrder() {
-        //TODO
-
+        currTable.submitOrder(db);
     }
-
 }

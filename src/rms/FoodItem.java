@@ -15,4 +15,8 @@ public class FoodItem {
     public String toString() {
         return   name ;
     }
+
+    public FoodItem clone() {
+        return new FoodItem(name);
+    }
 }

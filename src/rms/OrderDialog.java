@@ -25,10 +25,11 @@ public class OrderDialog extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                new AddItemDialog(controller);
+                AddItemDialog dlg = new AddItemDialog(controller);
+                dlg.setLocationByPlatform(true);
                 //update order list
                 listModel.removeAllElements();
-                controller.currTable.currOrder.itemList.forEach(x -> listModel.addElement(x.toString()));
+                controller.currTable.currOrder.itemList.forEach((key, value) -> listModel.addElement(key.toString() + " x" + value.toString()));
 
             }
         });
